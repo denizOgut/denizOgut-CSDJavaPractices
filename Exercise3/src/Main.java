@@ -16,15 +16,59 @@ class NumberUtilTester {
         System.out.println("----------------------------------------------------------------");
         NumberUtil.isSuperPrime(18);
         System.out.println("----------------------------------------------------------------");
-
+        NumberUtil.collatzConjecture(72543);
+        System.out.println("----------------------------------------------------------------");
+        System.out.println(NumberUtil.isDecimalHarshad(12));
+        System.out.println("----------------------------------------------------------------");
+        NumberUtil.isFactorian();
+        System.out.println("----------------------------------------------------------------");
+        NumberUtil.printHardyRamanjuan();
     }
 }
 
+
 class NumberUtil {
-    public static void printHardyRamanjuan(int number)
+
+    public static boolean isFactorian()
     {
-        //...
+        boolean result = false;
+        for (int i = 1; i <= 100_000; i++) {
+            if (findDigitsFactoriel(i) == i) {
+                System.out.format("%d ", i);
+                result = true;
+            }
+        }
+        System.out.println("");
+        return result;
     }
+
+    public static void collatzConjecture(int number)
+    {
+        while (number > 1) {
+            System.out.format("%d ", number);
+            number = number % 2 == 0 ? number / 2 : 3 * number + 1;
+        }
+        System.out.println("");
+    }
+
+    public static boolean isDecimalHarshad(int number)
+    {
+        return number > 0 && number % sumDigits(number) == 0;
+    }
+
+    public static void printHardyRamanjuan()
+    {
+        int digitSum = 0;
+        int reverseDigitSum = 0;
+        for (int i = 1000; i <= 100_000; i++) {
+            digitSum = sumDigits(i);
+            reverseDigitSum = reversed(digitSum);
+            if ((digitSum * reverseDigitSum) == i) {
+                System.out.format("%d ", i);
+            }
+        }
+    }
+
 
     public static boolean isSuperPrime(int number)
     {
@@ -155,6 +199,20 @@ class NumberUtil {
         val /= 10;
         return val % 100;
     }
+
+    public static int findDigitsFactoriel(int number)
+    {
+        int digit = 0;
+        int sumFactorial = 0;
+        while (number > 0) {
+            digit = number % 10;
+            sumFactorial += factoriel(digit);
+            number = number / 10;
+        }
+
+        return sumFactorial;
+    }
+
 
 }
 
