@@ -55,7 +55,7 @@ public class Bingo {
 
     public static boolean winConditionThird(Stamp s1, Stamp s2, Stamp s3 )
     {
-        return Math.max(Math.max(s1.val, s2.val), s3.val)  - Math.min(Math.min(s1.val, s2.val), s3.val) > NumberUtil.findMeanOfTree(s1.val,s2.val,s3.val);
+        return Math.max(Math.max(s1.val, s2.val), s3.val)  - Math.min(Math.min(s1.val, s2.val), s3.val) > NumberUtil.findMid(s1.val,s2.val,s3.val);
     }
 
     public static boolean isDuplicate(Stamp s1, Stamp s2)

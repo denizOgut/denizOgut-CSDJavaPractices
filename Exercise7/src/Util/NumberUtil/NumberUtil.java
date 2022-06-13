@@ -30,9 +30,11 @@ public class NumberUtil {
         return  a + b + c;
     }
 
-    public static int  findMeanOfTree(int a, int b, int c) //...varargs ile yapılabilir.
+
+
+    public static int  findMid(int a, int b, int c)
     {
-        return (a + b + c) / 3;
+        return (a + b + c) - (Math.max(Math.max(a, b), c)  - Math.min(Math.min(a, b), c));
     }
 
 
