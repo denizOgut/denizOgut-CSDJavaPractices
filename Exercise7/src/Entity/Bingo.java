@@ -13,27 +13,30 @@ public class Bingo {
 
     public static int play()
     {
+
         Stamp s1 , s2 , s3;
         int winCounter = 0;
-
-        s1 = new Stamp();
-        s2 = new Stamp();
-        s3 = new Stamp();
-
-        if(isDuplicate(s1,s2))
-        {
+        for(int i = 0; i < 30_000; i++) {
+            s1 = new Stamp();
             s2 = new Stamp();
-        }
-
-        if(isDuplicate(s1,s2,s3))
-        {
             s3 = new Stamp();
-        }
 
-        if(isGameWon(s1,s2,s3))
-        {
-            System.out.println("Game is won");// Sonucu gormek ıcın !
-            winCounter++;
+            if (isDuplicate(s1, s2)) {
+                while (s2 != s1)
+                    s2 = new Stamp();
+            }
+
+            if (isDuplicate(s1, s2, s3)) {
+                while (s3 != s2 && s3 != s1) {
+                    s3 = new Stamp();
+                }
+
+            }
+
+            if (isGameWon(s1, s2, s3)) {
+                winCounter++;
+            }
+
         }
         return winCounter;
     }

@@ -1,8 +1,12 @@
 import Entity.Bingo;
+import Entity.Date;
+import Test.BingoTester;
 
 public class Main {
     public static void main(String[] args)
     {
-        Bingo.play();
+        //BingoTester.run(30_000);
+        Date d = new Date();
+        d.printDate();
     }
 }
