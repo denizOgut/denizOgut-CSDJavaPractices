@@ -5,8 +5,8 @@ import Test.BingoTester;
 public class Main {
     public static void main(String[] args)
     {
-        //BingoTester.run(30_000);
+        BingoTester.run(30_000);
         Date d = new Date();
-        d.printDate();
+        System.out.println(d.printDate());
     }
 }
